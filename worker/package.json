@@ -1,0 +1,18 @@
+{
+  "name": "mcp-php-kit-worker",
+  "version": "0.1.0",
+  "description": "Optional Cloudflare Worker placed in front of an mcp-php-kit server: bearer token, rate limit, filtered relay.",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^5.0.5"
+  }
+}

@@ -1,0 +1,22 @@
+# Dependencies and generated files
+/vendor/
+node_modules/
+/composer.lock
+/.phpunit.cache/
+/.php-cs-fixer.cache
+/worker/.wrangler/
+/worker/wrangler.toml
+
+# Secrets: never in a repository
+.env
+.env.*
+!.env.example
+.dev.vars
+*.key
+*.pem
+
+# Editors and systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

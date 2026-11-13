@@ -1,0 +1,26 @@
+# Copy to wrangler.toml (ignored by git) and adapt. Never write a token or a secret here:
+# secrets are stored with `npx wrangler secret put MCP_TOKEN` and `npx wrangler secret put ORIGIN_SECRET`.
+name = "mcp-gateway"
+main = "src/index.js"
+compatibility_date = "2026-10-01"
+
+# Optional: serve the Worker on your own domain instead of *.workers.dev.
+# routes = [{ pattern = "mcp.example.com", custom_domain = true }]
+
+[vars]
+# URL of the PHP server (index.php of mcp-php-kit), https only.
+ORIGIN_URL = "https://origin.example.com/mcp/index.php"
+# Browser origins allowed to call the Worker, comma-separated. Empty: browsers are refused.
+ALLOWED_ORIGINS = ""
+# Header carrying the shared secret, checked by SharedSecretAuthenticator on the PHP side.
+ORIGIN_SECRET_HEADER = "X-Mcp-Origin-Secret"
+
+# Rate limit per IP address: 60 requests per 60 seconds and per Cloudflare location.
+# namespace_id is a positive integer of your choice, unique in your Cloudflare account.
+[[ratelimits]]
+name = "MCP_RATE_LIMITER"
+namespace_id = "1001"
+simple = { limit = 60, period = 60 }
+
+[observability]
+enabled = true

@@ -1,0 +1,55 @@
+{
+    "name": "polygonlab/mcp-php-kit",
+    "description": "Build MCP (Model Context Protocol) servers in plain PHP, with an optional Cloudflare Worker in front.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["php", "mcp", "model-context-protocol", "json-rpc", "cloudflare-workers", "ai", "llm"],
+    "homepage": "https://github.com/polygonlab-ai/mcp-php-kit",
+    "authors": [
+        {
+            "name": "PolygonLab",
+            "email": "contact@polygonlab.ai",
+            "homepage": "https://polygonlab.ai"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/polygonlab-ai/mcp-php-kit/issues",
+        "source": "https://github.com/polygonlab-ai/mcp-php-kit",
+        "security": "https://github.com/polygonlab-ai/mcp-php-kit/security/policy"
+    },
+    "require": {
+        "php": ">=8.2",
+        "ext-json": "*",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.75",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^11.5"
+    },
+    "suggest": {
+        "psr/log": "Any PSR-3 logger can be plugged in through PolygonLab\\McpKit\\Log\\CallableLogger."
+    },
+    "autoload": {
+        "psr-4": {
+            "PolygonLab\\McpKit\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PolygonLab\\McpKit\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse --no-progress",
+        "style": "php-cs-fixer fix --dry-run --diff",
+        "style-corriger": "php-cs-fixer fix"
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
